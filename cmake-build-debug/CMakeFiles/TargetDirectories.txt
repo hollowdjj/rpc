@@ -1,0 +1,3 @@
+/home/hollow/codes/rpc/cmake-build-debug/CMakeFiles/rpc.dir
+/home/hollow/codes/rpc/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/hollow/codes/rpc/cmake-build-debug/CMakeFiles/rebuild_cache.dir

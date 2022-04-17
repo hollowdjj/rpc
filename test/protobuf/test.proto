@@ -1,0 +1,50 @@
+syntax = "proto3";       //declare version of protobuf
+
+package protobuf_test;   //namespace for C++
+
+option cc_generic_services = true; //set true to generate service
+
+message ResultCode
+{
+  uint32  errcode = 1;
+  bytes errmsg = 2;
+}
+
+message LoginRequest
+{
+  bytes name = 1;       //first filed
+  bytes pwd = 2;        //second filed
+  map<int32,string> test = 3;
+}
+
+message  LoginResponse
+{
+  ResultCode errcode = 1;
+  bool success = 2;
+}
+
+message User
+{
+  bytes name = 1;
+  uint32 age = 2;
+  enum Sex {
+    MAN = 0;
+    WOMAN = 1;
+  }
+  Sex sex = 3;
+}
+
+message GetFriendListsRequest {
+  uint32 userid = 1;
+}
+
+message GetFriendListsResponse {
+  ResultCode errcode = 1;
+  repeated User friend_list = 2;   //declare a list
+}
+
+//define a rpc method type
+service UserServiceRpc {
+  rpc Login(LoginRequest) returns(LoginResponse);
+  rpc GetFriendLists(GetFriendListsRequest) returns(GetFriendListsResponse);
+}
